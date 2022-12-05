@@ -1,0 +1,40 @@
+header {
+    background-color: #404040;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+header a {
+    color: #ffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.home-title {
+    font-size: 1.8rem;
+    padding: 1.5rem 0.8rem;
+    font-weight: 600;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product {
+    border: 1px #404040 solid;
+    margin: 0.8rem;
+}
+
+.product img {
+    width: 100%;
+    max-width: 350px;
+}
+
+.product-details {
+    padding: 1rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
