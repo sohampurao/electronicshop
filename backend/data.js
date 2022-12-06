@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'boat stone granade',
       slug: 'boat-stone-granade',
       category: 'speaker',
@@ -14,6 +15,7 @@ const data = {
         'boAt Stone Grenade | Bluetooth Speakers with 1.75” Full-range Drivers, High Fidelity Stereo Sound, Up to 7hrs Nonstop Playback',
     },
     {
+      _id: '2',
       name: 'boAt Wave Neo',
       slug: 'boAt-Wave-Neo',
       category: 'watch',
@@ -27,6 +29,7 @@ const data = {
         'boAt Wave Neo | 1.69" HD Display, Upto 7 Days Battery Life, IP68 Sweat & Water Resistant, 100+ Watch Faces',
     },
     {
+      _id: '3',
       name: 'boAt Iris',
       slug: 'boAt-Iris',
       category: 'watch',
@@ -40,6 +43,7 @@ const data = {
         'boAt Iris | Round Dial Smart Watch with 1.39" AMOLED Display, Multiple Watch Faces',
     },
     {
+      _id: '4',
       name: 'boAt Rockerz',
       slug: 'boAt-Rockerz',
       category: 'heaphone',
