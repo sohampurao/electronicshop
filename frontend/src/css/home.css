@@ -1,21 +1,3 @@
-header {
-    background-color: #404040;
-    padding: 1rem;
-    font-size: 1rem;
-}
-
-header a {
-    color: #ffff;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.home-title {
-    font-size: 1.8rem;
-    padding: 1.5rem 0.8rem;
-    font-weight: 600;
-}
-
 .products {
     display: flex;
     justify-content: center;

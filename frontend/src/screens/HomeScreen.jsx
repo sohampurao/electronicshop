@@ -40,7 +40,7 @@ export default function Homescreen() {
   return (
     <>
       <main>
-        <h1 className="home-title">Featured Products</h1>
+        <h1 className="fs-3 py-2">Featured Products</h1>
         <div className="products">
           {loading ? (
             <div>Loading..</div>

@@ -1,15 +1,22 @@
-import Navbar from './components/Navbar';
+import Navigationbar from './components/Navbar';
 import Homescreen from './screens/HomeScreen';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductScreen from './screens/ProductScreen';
+import Container from 'react-bootstrap/esm/Container';
+import Footer from './components/Footer';
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/product/:slug" element={<ProductScreen />} />
-        <Route index element={<Homescreen />} />
-      </Routes>
+      <div className="d-flex flex-column min-vh-100">
+        <Navigationbar />
+        <Container>
+          <Routes>
+            <Route path="/product/:slug" element={<ProductScreen />} />
+            <Route index element={<Homescreen />} />
+          </Routes>
+        </Container>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
