@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
         <Navigationbar />
-        <Container>
+        <Container className="mt-3">
           <Routes>
             <Route path="/product/:slug" element={<ProductScreen />} />
             <Route index element={<Homescreen />} />

@@ -6,7 +6,7 @@ const data = {
       category: 'speaker',
       image: '/images/boat-stone-granade.png', //679px x 829px
       price: 1500,
-      countInStock: 16,
+      countInStock: 0,
       brand: 'Boat',
       rating: 5.0,
       numReviews: 10,
