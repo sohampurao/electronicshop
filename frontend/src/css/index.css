@@ -67,3 +67,8 @@ textarea,
 select {
   font: inherit;
 }
+
+/* start rating */
+.rating span {
+  color: #ffd700;
+}
