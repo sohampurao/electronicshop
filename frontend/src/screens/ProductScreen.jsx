@@ -96,8 +96,8 @@ export default function ProductScreen() {
               ></Rating>
             </ListGroup.Item>
             <ListGroup.Item>
-              Description:
-              <p>{product.description}</p>
+              <div className="fs-normal fw-semibold">Description:</div>
+              <p className="fs-small fw-lighter">{product.description}</p>
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -126,7 +126,10 @@ export default function ProductScreen() {
               {product.countInStock > 0 && (
                 <ListGroup.Item>
                   <div className="d-grid">
-                    <Button onClick={addToCartHandler} variant="primary">
+                    <Button
+                      onClick={addToCartHandler}
+                      variant="warning fw-semibold text-white"
+                    >
                       Add to Cart
                     </Button>
                   </div>

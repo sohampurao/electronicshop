@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Rating from './Rating';
+import axios from 'axios';
+import { Store } from '../Store';
 
 export default function Product(props) {
   const { product } = props;
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const {
+    cart: { cartItems },
+  } = state;
+
+  const addToCartHandler = async (item) => {
+    const existItem = cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${item._id}`);
+    if (data.countInStock < quantity) {
+      window.alert('Sorry. Product is out of Stock');
+      return;
+    }
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...item, quantity },
+    });
+  };
   return (
     <div>
       <Card>
@@ -22,12 +43,19 @@ export default function Product(props) {
             numReviews={product.numReviews}
           ></Rating>
           <Card.Text className="fw-semibold">&#8377;{product.price}</Card.Text>
-          <Button
-            variant="warning"
-            className="text-white font-weight-bold mt-1"
-          >
-            Add to cart
-          </Button>
+          {product.countInStock === 0 ? (
+            <Button variant="light" disabled>
+              Out of Stock
+            </Button>
+          ) : (
+            <Button
+              variant="warning"
+              className="text-white font-weight-bold mt-1"
+              onClick={() => addToCartHandler(product)}
+            >
+              Add to cart
+            </Button>
+          )}
         </Card.Body>
       </Card>
     </div>

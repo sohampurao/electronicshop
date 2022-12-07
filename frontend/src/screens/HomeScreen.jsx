@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import '../css/home.css';
 import axios from 'axios';
 import { useReducer } from 'react';
 import logger from 'use-reducer-logger';
