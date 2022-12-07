@@ -72,3 +72,7 @@ select {
 .rating span {
   color: #ffd700;
 }
+
+.img-thumbnail {
+  height: 80px;
+}

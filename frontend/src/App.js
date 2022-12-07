@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductScreen from './screens/ProductScreen';
 import Container from 'react-bootstrap/esm/Container';
 import Footer from './components/Footer';
+import CartScreen from './screens/CartScreen';
+
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +14,7 @@ function App() {
         <Container className="mt-3">
           <Routes>
             <Route path="/product/:slug" element={<ProductScreen />} />
+            <Route path="/cart" element={<CartScreen />} />
             <Route index element={<Homescreen />} />
           </Routes>
         </Container>

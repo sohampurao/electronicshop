@@ -28,6 +28,7 @@ const reducer = (state, action) => {
 };
 
 export default function ProductScreen() {
+  // const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -64,6 +65,8 @@ export default function ProductScreen() {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
+    // to navigate the user to cartscreen after adding product
+    // navigate('/cart');
   };
   return loading ? (
     <LoadingBox></LoadingBox>
