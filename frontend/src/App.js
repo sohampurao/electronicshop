@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Footer from './components/Footer';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
+import ShippingAdressScreen from './screens/ShippingAdressScreen';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/product/:slug" element={<ProductScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/signin" element={<SigninScreen />} />
+            <Route path="/shipping" element={<ShippingAdressScreen />} />
             <Route index element={<Homescreen />} />
           </Routes>
         </Container>
