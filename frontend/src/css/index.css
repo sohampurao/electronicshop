@@ -95,3 +95,20 @@ select {
 .checkout-steps a {
   color: #f08000
 }
+
+/* tables  */
+.table-container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.table-container {
+  min-height: 500px;
+}
+
+.table-date-col,
+.table-paid-col,
+.table-action-col,
+.table-menuname-col,
+.menulist-table-text {
+  min-width: 200px;
+}
