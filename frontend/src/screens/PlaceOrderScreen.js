@@ -115,7 +115,7 @@ export default function PlaceOrderScreen() {
               <Card.Title>Items</Card.Title>
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
-                  <ListGroup.Item variant="flush">
+                  <ListGroup.Item variant="flush" key={item._id}>
                     <Row className="align-items-center">
                       <Col md={6}>
                         <img
@@ -128,7 +128,7 @@ export default function PlaceOrderScreen() {
                         </Link>
                       </Col>
                       <Col md={3}>
-                        <span>{item.quatity}</span>
+                        <span>{item.quantity}</span>
                       </Col>
                       <Col md={3}>&#8377;{item.price}</Col>
                     </Row>
@@ -179,6 +179,7 @@ export default function PlaceOrderScreen() {
                       type="button"
                       onClick={placeOrderHandler}
                       disabled={cart.cartItems.length === 0}
+                      variant="warning fw-semibold text-white"
                     >
                       Place Order
                     </Button>
