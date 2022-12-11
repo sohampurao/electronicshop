@@ -48,7 +48,7 @@ export default function SigninScreen() {
       </Helmet>
       <h1 className="my-3 fs-3">Sign In</h1>
       <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlID="email">
+        <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
@@ -56,7 +56,7 @@ export default function SigninScreen() {
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Form.Group className="mb-3" controlID="password">
+        <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
