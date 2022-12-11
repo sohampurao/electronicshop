@@ -90,5 +90,8 @@ select {
 
 .checkout-steps>div.active {
   border-bottom: 0.2rem solid #f08000;
+}
+
+.checkout-steps a {
   color: #f08000
 }

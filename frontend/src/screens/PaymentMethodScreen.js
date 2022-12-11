@@ -26,12 +26,10 @@ export default function PaymentMethodScreen() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    ctxDispatch({ type: 'SAVE_PAYMENT_MEHTOD', payload: paymentMethodName });
+    ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
   };
-
-  console.log(paymentMethod);
   return (
     <>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
