@@ -112,3 +112,36 @@ select {
 .menulist-table-text {
   min-width: 200px;
 }
+
+/* sidebar */
+.btn-outline-primary,
+.btn-primary {
+  background-color: #f0c040;
+  color: #000000;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+  z-index: 9999;
+}
+
+.site-container {
+  transition: 0.4s;
+}
+
+.active-cont {
+  margin-left: 240px;
+}
+
+.active-nav {
+  left: 0;
+}
