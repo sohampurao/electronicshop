@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Rating from './Rating';
 import axios from 'axios';
 import { Store } from '../Store';
+import { NavLink } from 'react-router-dom';
 
 export default function Product(props) {
   const { product } = props;
@@ -30,12 +31,12 @@ export default function Product(props) {
   return (
     <div>
       <Card>
-        <Link to={`product/${product.slug}`}>
+        <NavLink to={`/product/${product.slug}`}>
           <Card.Img variant="top" src={product.image} alt={product.name} />
-        </Link>
+        </NavLink>
 
         <Card.Body>
-          <Link to={`product/${product.slug}`}>
+          <Link to={`/product/${product.slug}`}>
             <Card.Title>{product.name}</Card.Title>
           </Link>
           <Rating
