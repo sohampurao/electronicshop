@@ -17,6 +17,7 @@ import SearchScreen from './screens/SearchScreen';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './screens/ProductListScreen';
 
 function App() {
   return (
@@ -64,6 +65,14 @@ function App() {
               element={
                 <AdminRoute>
                   <DashboardScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/products"
+              element={
+                <AdminRoute>
+                  <ProductListScreen />
                 </AdminRoute>
               }
             ></Route>
