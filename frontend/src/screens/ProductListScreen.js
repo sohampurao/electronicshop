@@ -116,16 +116,36 @@ export default function ProductListScreen() {
                 <th scope="col">PRICE</th>
                 <th scope="col">CATEGORY</th>
                 <th scope="col">BRAND</th>
+                <th scope="col">ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
+                  <td className="table-manuname-col">{product.name}</td>
+                  <td className="table-price-col">{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
+                  <td className="table-action-col">
+                    <button
+                      className="btn btn-warning mx-1 text-white fw-semibold edit-btn"
+                      type="button"
+                      onClick={() => {
+                        navigate(`/admin/product/${product._id}`);
+                      }}
+                      title="edit"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    {/* <button 
+                                className='btn btn-danger mx-1 delete-btn' 
+                                type='button' 
+                                title='delete'
+                                onClick={() => deleteMenu(menuitem)}
+                            ><i class="fa-solid fa-trash-can"></i>
+                            </button> */}
+                  </td>
                 </tr>
               ))}
             </tbody>

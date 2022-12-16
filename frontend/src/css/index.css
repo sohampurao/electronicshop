@@ -145,3 +145,36 @@ select {
 .active-nav {
   left: 0;
 }
+
+/* tables  */
+.table-container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.table-container {
+  min-height: 500px;
+}
+
+.table-date-col,
+.table-price-col,
+.table-action-col,
+.table-menuname-col,
+.menulist-table-text {
+  min-width: 200px;
+}
+
+.productedit-image {
+  max-width: 360px;
+  max-height: 326px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.menulist-table-text {
+  max-width: 250px;
+}
