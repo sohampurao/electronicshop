@@ -143,7 +143,7 @@ export default function OrderListScreen() {
                     variant="danger"
                     onClick={() => deleteHandler(order)}
                   >
-                    <i class="fa-solid fa-trash-can"></i>
+                    <i className="fa-solid fa-trash-can"></i>
                   </Button>
                 </td>
               </tr>
