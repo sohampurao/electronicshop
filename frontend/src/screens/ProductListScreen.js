@@ -33,6 +33,19 @@ const reducer = (state, action) => {
       };
     case 'CREATE_FAIL':
       return { ...state, loadingCreate: false };
+    case 'DELETE_REQUEST':
+      return { ...state, loadingDelete: true, successDelete: false };
+    case 'DELETE_SUCCESS':
+      return {
+        ...state,
+        loadingDelete: false,
+        successDelete: true,
+      };
+    case 'DELETE_FAIL':
+      return { ...state, loadingDelete: false, successDelete: false };
+
+    case 'DELETE_RESET':
+      return { ...state, loadingDelete: false, successDelete: false };
     default:
       return state;
   }
@@ -41,11 +54,21 @@ const reducer = (state, action) => {
 export default function ProductListScreen() {
   const navigate = useNavigate();
 
-  const [{ loading, error, products, pages, loadingCreate }, dispatch] =
-    useReducer(reducer, {
-      loading: true,
-      error: '',
-    });
+  const [
+    {
+      loading,
+      error,
+      products,
+      pages,
+      loadingCreate,
+      loadingDelete,
+      successDelete,
+    },
+    dispatch,
+  ] = useReducer(reducer, {
+    loading: true,
+    error: '',
+  });
 
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
@@ -63,8 +86,13 @@ export default function ProductListScreen() {
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {}
     };
-    fecthData();
-  }, [page, userInfo]);
+
+    if (successDelete) {
+      dispatch({ type: 'DELETE_RESET' });
+    } else {
+      fecthData();
+    }
+  }, [page, userInfo, successDelete]);
 
   const createHandler = async () => {
     if (window.confirm('Are you sure to Create?')) {
@@ -87,11 +115,27 @@ export default function ProductListScreen() {
     }
   };
 
+  const deleteHandler = async (product) => {
+    if (window.confirm('Are you sure to delete?')) {
+      try {
+        await axios.delete(`/api/products/${product._id}`, {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
+        toast.success('product deleted successfully');
+        dispatch({ type: 'DELETE_SUCCESS' });
+      } catch (err) {
+        toast.error(getError(error));
+        dispatch({
+          type: 'DELETE_FAIL',
+        });
+      }
+    }
+  };
   return (
     <div>
       <Row>
         <Col>
-          <h1>Products</h1>
+          <div className="fs-3 my-2">Products</div>
         </Col>
         <Col className="col text-end">
           <div>
@@ -102,6 +146,7 @@ export default function ProductListScreen() {
         </Col>
       </Row>
       {loadingCreate && <LoadingBox></LoadingBox>}
+      {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -116,7 +161,9 @@ export default function ProductListScreen() {
                 <th scope="col">PRICE</th>
                 <th scope="col">CATEGORY</th>
                 <th scope="col">BRAND</th>
-                <th scope="col">ACTIONS</th>
+                <th scope="col" className="text-center">
+                  ACTIONS
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -124,10 +171,10 @@ export default function ProductListScreen() {
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td className="table-manuname-col">{product.name}</td>
-                  <td className="table-price-col">{product.price}</td>
+                  <td className="table-price-col">₹{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
-                  <td className="table-action-col">
+                  <td className="table-action-col d-flex justify-content-center">
                     <button
                       className="btn btn-warning mx-1 text-white fw-semibold edit-btn"
                       type="button"
@@ -138,13 +185,14 @@ export default function ProductListScreen() {
                     >
                       <i class="fa-solid fa-pen-to-square"></i>
                     </button>
-                    {/* <button 
-                                className='btn btn-danger mx-1 delete-btn' 
-                                type='button' 
-                                title='delete'
-                                onClick={() => deleteMenu(menuitem)}
-                            ><i class="fa-solid fa-trash-can"></i>
-                            </button> */}
+                    <button
+                      className="btn btn-danger mx-1 delete-btn"
+                      type="button"
+                      title="delete"
+                      onClick={() => deleteHandler(product)}
+                    >
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
                   </td>
                 </tr>
               ))}
