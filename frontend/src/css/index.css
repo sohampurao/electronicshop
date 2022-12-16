@@ -114,12 +114,6 @@ select {
 }
 
 /* sidebar */
-.btn-outline-primary,
-.btn-primary {
-  background-color: #f0c040;
-  color: #000000;
-}
-
 .navbar-brand {
   font-weight: bold;
 }
