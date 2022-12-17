@@ -50,6 +50,7 @@ export default function ProductScreen() {
 
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
+  const [selectedImage, setSelectedImage] = useState('');
 
   const params = useParams();
   const { slug } = params;
@@ -134,7 +135,7 @@ export default function ProductScreen() {
         <Col md={6}>
           <img
             className="img-fluid h-75"
-            src={product.image}
+            src={selectedImage || product.image}
             alt={product.name}
           />
         </Col>
@@ -145,18 +146,40 @@ export default function ProductScreen() {
                 <title>{product.name}</title>
               </Helmet>
             </ListGroup.Item>
+
             <ListGroup.Item>
               <Rating
                 rating={product.rating}
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
+
             <ListGroup.Item>
               <div className="fs-normal fw-semibold">Description:</div>
               <p className="fs-small fw-lighter">{product.description}</p>
             </ListGroup.Item>
+
+            <ListGroup.Item variant="flush">
+              <Row xs={1} md={2} className="g-2">
+                {[product.image, ...product.images].map((x) => (
+                  <Col key={x}>
+                    <Card>
+                      <Button
+                        className="thumbnail"
+                        type="button"
+                        variant="light"
+                        onClick={() => setSelectedImage(x)}
+                      >
+                        <Card.Img variant="top" src={x} alt="product" />
+                      </Button>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </ListGroup.Item>
           </ListGroup>
         </Col>
+
         <Col md={3}>
           <Card>
             <ListGroup variant="flush">
@@ -166,6 +189,7 @@ export default function ProductScreen() {
                   <Col> &#8377;{product.price}</Col>
                 </Row>
               </ListGroup.Item>
+
               <ListGroup.Item>
                 <Row>
                   <Col>Status:</Col>

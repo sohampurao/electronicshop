@@ -172,3 +172,7 @@ select {
 .menulist-table-text {
   max-width: 250px;
 }
+
+button.thumbnail {
+  padding: 0;
+}
