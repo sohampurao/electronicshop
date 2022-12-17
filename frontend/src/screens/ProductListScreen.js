@@ -178,10 +178,10 @@ export default function ProductListScreen() {
                     <button
                       className="btn btn-warning mx-1 text-white fw-semibold edit-btn"
                       type="button"
+                      title="edit"
                       onClick={() => {
                         navigate(`/admin/product/${product._id}`);
                       }}
-                      title="edit"
                     >
                       <i className="fa-solid fa-pen-to-square"></i>
                     </button>
