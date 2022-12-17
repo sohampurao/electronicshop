@@ -3,7 +3,7 @@ import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import User from '../models/userModel.js';
 import Product from '../models/productModel.js';
-import { isAdmin, isAuth } from '../utils.js';
+import { isAuth, isAdmin } from '../utils.js';
 
 const orderRouter = express.Router();
 
@@ -104,22 +104,6 @@ orderRouter.get(
 );
 
 orderRouter.put(
-  '/:id/deliver',
-  isAuth,
-  expressAsyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id);
-    if (order) {
-      order.isDelivered = true;
-      order.deliveredAt = Date.now();
-      await order.save();
-      res.send({ message: 'Order Delivered' });
-    } else {
-      res.status(404).send({ message: 'Order Not Found' });
-    }
-  })
-);
-
-orderRouter.put(
   '/:id/pay',
   isAuth,
   expressAsyncHandler(async (req, res) => {
@@ -133,6 +117,7 @@ orderRouter.put(
         update_time: req.body.update_time,
         email_address: req.body.email_address,
       };
+
       const updatedOrder = await order.save();
       res.send({ message: 'Order Paid', order: updatedOrder });
     } else {
@@ -141,18 +126,4 @@ orderRouter.put(
   })
 );
 
-orderRouter.delete(
-  '/:id',
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id);
-    if (order) {
-      await order.remove();
-      res.send({ message: 'Order Deleted' });
-    } else {
-      res.status(404).send({ message: 'Order Not Found' });
-    }
-  })
-);
 export default orderRouter;
