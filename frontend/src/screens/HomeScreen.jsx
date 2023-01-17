@@ -8,6 +8,7 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+// import Carousel from '../components/Carousel';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -47,6 +48,7 @@ export default function Homescreen() {
         <Helmet>
           <title>Gada Electronics</title>
         </Helmet>
+        {/* <Carousel /> */}
         <h1 className="fs-3 py-2">Featured Products</h1>
         <div className="products">
           {loading ? (

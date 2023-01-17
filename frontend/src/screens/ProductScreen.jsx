@@ -132,6 +132,9 @@ export default function ProductScreen() {
   ) : (
     <div>
       <Row>
+        <Helmet>
+          <title>{product.name}</title>
+        </Helmet>
         <Col md={6}>
           <img
             className="img-fluid h-75"
@@ -141,10 +144,8 @@ export default function ProductScreen() {
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">
-            <ListGroup.Item as="h1">
-              <Helmet>
-                <title>{product.name}</title>
-              </Helmet>
+            <ListGroup.Item>
+              <div className="fs-4 fw-semibold">{product.name}</div>
             </ListGroup.Item>
 
             <ListGroup.Item>

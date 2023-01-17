@@ -176,3 +176,26 @@ select {
 button.thumbnail {
   padding: 0;
 }
+
+/* carousel */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: red !important;
+}
