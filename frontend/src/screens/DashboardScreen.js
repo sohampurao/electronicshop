@@ -63,7 +63,7 @@ export default function DashboardScreen() {
               <Card>
                 <Card.Body>
                   <Card.Title>
-                    {summary.user && summary.users[0]
+                    {summary.users && summary.users[0]
                       ? summary.users[0].numUsers
                       : 0}
                   </Card.Title>

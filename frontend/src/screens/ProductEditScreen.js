@@ -173,14 +173,14 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="slug">
+          {/* <Form.Group className="mb-3" controlId="slug">
             <Form.Label className="fw-semibold">Slug</Form.Label>
             <Form.Control
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               required
             />
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group className="mb-3" controlId="name">
             <Form.Label className="fw-semibold">Price</Form.Label>
@@ -191,14 +191,14 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="image">
+          {/* <Form.Group className="mb-3" controlId="image">
             <Form.Label className="fw-semibold">Image File</Form.Label>
             <Form.Control
               value={image}
               onChange={(e) => setImage(e.target.value)}
               required
             />
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group className="mb-3" controlId="imageFile">
             <Form.Label>Upload Image</Form.Label>
